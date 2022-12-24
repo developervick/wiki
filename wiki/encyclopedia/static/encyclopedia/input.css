@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .contentArea {
+        @apply px-2 w-auto h-max rounded-lg ring-2 ring-violet-500 font-semibold text-xl text-black ;
+    }
+    .red {
+        @apply text-red-700 text-4xl;
+    }
+    .new {
+        @apply p-3;
+    }
+}

@@ -1,0 +1,29 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+
+    <div class="m-1 p-2 font-semibold text-4xl text-violet-900">
+        <h1>Create New Page</h1>
+    </div>
+
+    <div class="">
+        <form class="flex flex-col m-1 px-2 py-1" action="{% url 'createPage' %}" method="POST">
+            {% csrf_token %}
+            <label class="text-xl font-semibold" for="id_title">Title:</label>
+            <input class="px-2 mr-20 h-10 rounded-lg ring-2 ring-violet-500 text-semibold text-xl text-black" type="text" name="title" maxlength="250" required="" id="id_title">
+            <label class="text-xl font-semibold" for="id_content">Content:</label>
+            <textarea class="px-2 w-auto h-max rounded-lg ring-2 ring-violet-500 text-semibold text-xl text-black" name="content" cols="40" rows="10" maxlength="500" required="" id="id_content"></textarea>
+            <input class="m-3 p-2 w-min bg-violet-800 hover:bg-violet-900 text-violet-50 text-xl font-medium rounded-md" type="submit" value="Create entry ->">
+    
+        </form>
+    </div>
+    
+
+    
+    
+
+{% endblock %}

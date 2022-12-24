@@ -1,0 +1,16 @@
+
+
+<!--Message display template-->
+
+{% if messages %}
+<ul class="messages">
+{% for message in messages %}
+    <li class="bg-red-300 text-red-900 text-2xl font-semibold ">{{ message }}</li>
+{% endfor %}
+</ul>
+<a href="{% url 'index' %}">
+    <div class="m-3 p-2 w-max bg-violet-800 hover:bg-violet-900 text-violet-50 text-xl font-medium rounded-md">
+        Re-Search
+    </div>
+</a>
+{% else %} 

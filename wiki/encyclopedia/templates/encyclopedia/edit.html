@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit entry
+{% endblock %}
+
+{% block body %}
+    
+    <div class="flex flex-col">
+        <div>
+            <h1 class="m-1 p-2 font-semibold text-4xl text-violet-900">Edit entry</h1>
+        </div>
+
+        <div class="">
+            <form class="flex flex-col " action="{% url 'updateEntry' %}" method="POST">
+
+                {% csrf_token %}
+                <h1 class=" m-1 p-1 text-2xl font-semibold">{{ title }} :</h1>
+                <input type="hidden" value="{{title}}" name="title" >
+                {{form.content}}
+                <input class="m-3 p-2 w-min bg-violet-800 hover:bg-violet-900 text-violet-50 text-xl font-medium rounded-md" type="submit" value="Update Entry >>">
+            </form>
+        </div>
+    </div>
+    
+
+    
+    
+
+{% endblock %}

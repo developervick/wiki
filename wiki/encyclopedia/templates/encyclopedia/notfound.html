@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+        <link href="{% static 'encyclopedia/output.css' %}" rel="stylesheet">
+        
+    </head>
+    <body class="m-0 p-0 bg-yellow-100">
+        
+        <div class="m-0 pl-6 flex flex-row ">
+            <div>
+            <h1 class="pb-2 text-2xl text-zinc-800 font-semibold">Sorry!! Page not found</h1>
+            <h5>Return to home page <a href="{% url 'index' %}" class="text-blue-500 underline ">click here</a></h5>
+            <h1 class="pb-2 text-6xl text-black font-bold ">Error 404 </h1>
+            </div>
+            <div class="px-1 py-2 ml-8 max-w-[320px]">
+                <img src="{% static 'encyclopedia/gru_gun.png' %}" class="py-1">
+            </div>
+    
+    </div>
+    </body>
+
+</html>

@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+        <link href="{% static 'encyclopedia/output.css' %}" rel="stylesheet">
+        
+    </head>
+    <body class="m-0 p-0">
+        <div class="static flex flex-col xl:grid xl:grid-cols-4 bg-stone-800 xl:bg-orange-100">
+
+            <!--sidebar-->
+            <div class="xl:container xl:bg-orange-100 flex flex-row ">                
+                <div class="px-4 pb-4 drop-shadow-2xl shadow-slate-400 xl:shadow-xl xl:shadow-slate-500 xl:ml-20 xl:mr-10 xl:h-[720px] xl:sticky xl:top-0 flex flex-col flex-grow items-start bg-stone-800">
+                    <a href="{% url 'index' %}">
+                    <h2 class="mx-2 my-2 p-1 font-bold text-4xl text-violet-300" >Wiki</h2>
+                    </a>
+                    <form action="{% url 'search' %}" method="get">
+                        <input class="search p-2 h-8 rounded-xl ring-2 ring-violet-500 font-medium" type="text" name="q" placeholder="Search Encyclopedia">
+                    </form>
+                    <div class="mt-1 mx-2 pt-1 font-medium text-violet-300">
+                        <a href="{% url 'index' %}">Home</a>
+                    </div>
+                    <div class="mt-1 mx-2 pt-1 font-medium text-violet-300">
+                        <a href="{% url 'createPage' %}">Create New Page</a>
+                    </div>
+                    <div class="mt-1 mx-2  pt-1 font-medium text-violet-300">
+                        <a href="{% url 'randomPage' %}">Random Page</a>
+                    </div>
+                    <div class="hidden xl:block mt-96">
+                        <img src="{% static 'encyclopedia/eyes.png' %}">
+                    </div>
+
+                    <div class="grid-cols-3" >
+                    {% block nav %}
+                    {% endblock %}                
+                    </div>                  
+                </div>
+                <div class="xl:hidden mb-4 mr-3 w-[200px] flex flex-col-reverse ">
+                    <img src="{% static 'encyclopedia/eyes.png' %}">
+                </div>
+                
+            </div>
+
+            <!--main body block-->
+            <div class="main xl:shadow-lg xl:shadow-slate-400 xl:col-start-2 xl:col-span-2 bg-amber-100 xl:bg-amber-200 grid grid-flow-row">
+                {% block body %}
+                {% endblock %}
+            </div>
+            <div class="static sm:hidden xl:block">
+                <img class="mt-[100px] ml-[20px] fixed min-w-[200px] max-w-[300px]" src="{% static 'encyclopedia/gru_min.png' %}" >
+            </div>
+        </div>
+    </body>
+</html>

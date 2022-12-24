@@ -1,0 +1,1 @@
+Added picture of gru and minion
